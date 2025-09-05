@@ -13,16 +13,25 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Clientes {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String nome;
 
     @jakarta.persistence.OneToMany(mappedBy = "clientes", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
-    private List<Object> contatos = new ArrayList<Object>();
+    private List<Contato> contatos = new ArrayList<Contato>();
 }
