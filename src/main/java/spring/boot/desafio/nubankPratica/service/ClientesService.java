@@ -52,7 +52,7 @@ public class ClientesService {
         Clientes cliente = clientesRepository.findById(clienteId).orElseThrow(() -> new RuntimeException("Cliente não encontratado"));
         return cliente.getContatos().stream().map(c -> {
             ContatoResponseDTO contatoDTO = new ContatoResponseDTO();
-            
+
             contatoDTO.setId(c.getId());
             contatoDTO.setTelefone(c.getTelefone());
             contatoDTO.setEmail(c.getEmail());
@@ -83,5 +83,8 @@ public class ClientesService {
 
 
     }
+
+    
+
     
 }
