@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import spring.boot.desafio.nubankPratica.dto.ClientesDTO;
 import spring.boot.desafio.nubankPratica.dto.ClientesResponseDTO;
@@ -43,11 +44,13 @@ public class ClientesService {
         return clientesRepository.save(clientes);
     }
 
+    @Transactional(readOnly = true)
     public List<ClientesResponseDTO> ListarTodos() {
         return clientesRepository.findAll().stream().map(this::toDTO).collect(Collectors.toList());
 
     }
 
+    @Transactional(readOnly = true)
     public List<ContatoResponseDTO> ListContatosPorCliente(Long clienteId) {
         Clientes cliente = clientesRepository.findById(clienteId).orElseThrow(() -> new RuntimeException("Cliente não encontratado"));
         return cliente.getContatos().stream().map(c -> {

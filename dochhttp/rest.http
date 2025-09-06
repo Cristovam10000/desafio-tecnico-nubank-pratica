@@ -1,0 +1,48 @@
+### Insere um cliente
+
+POST http://localhost:8080/clientes
+Content-Type: application/json
+
+{
+    "nome" : "Cris",
+    "contatos" : [
+        {
+            "telefone" : "1736474",
+            "email" : "cristovam1712@gmail.com"
+        },
+        {
+            "telefone" : "76767",
+            "email" : "teste@gmail.com"
+        }
+    ]
+}
+
+### Inserir um cliente sem contato
+
+POST http://localhost:8080/clientes
+Content-Type: application/json
+
+{
+    "nome" : "Bruno"
+}
+
+### inserir um contato para o cliente
+
+POST http://localhost:8080/contatos
+Content-Type: application/json
+
+{
+    "telefone" : "6236474",
+    "email" : "teste2@gmail.com",
+    "clienteId" : 2
+}
+
+### Listar todos os clientes com seus contatos
+
+GET http://localhost:8080/clientes
+Content-Type: application/json
+
+### Listagem dos contatos de um cliente por ID
+
+GET http://localhost:8080/clientes/2/contatos
+Content-Type: application/json

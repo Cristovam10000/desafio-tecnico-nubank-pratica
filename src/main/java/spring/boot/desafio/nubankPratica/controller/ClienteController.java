@@ -34,12 +34,12 @@ public class ClienteController {
 
     }
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<List<ClientesResponseDTO>> listarTodos() {
         return ResponseEntity.ok(clientesService.ListarTodos());
     }
     
-    @GetMapping("{/id}/contatos")
+    @GetMapping("/{id}/contatos")
     public ResponseEntity<List<ContatoResponseDTO>> listarContatos(@PathVariable Long id) {
         return ResponseEntity.ok(clientesService.ListContatosPorCliente(id));
     }
