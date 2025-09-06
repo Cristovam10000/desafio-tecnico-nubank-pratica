@@ -125,5 +125,5 @@ src/main/java/spring/boot/desafio/nubankPratica
 
 ---
 
-Feito com ❤️ para estudo/prática do desafio.
+Feito para estudo/prática do desafio.
 
